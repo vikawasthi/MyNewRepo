@@ -18,7 +18,7 @@
                 <h2 class="title">Add Items</h2>
                 <form class="form-inline mb-3">
                   <input type="text" class="form-control mr-2">
-                  <input type="submit" class="btn btn-dark" value="Submit">
+                  <input type="button" class="btn-dark" value="Submit">
                 </form>
                 <h2 class="title">Items</h2>
                 <ul id="items" class="list-group">
@@ -30,5 +30,26 @@
                </div>
               </div>
         </body>
+        <script>
+          var cl=  document.querySelector('.btn-dark');
+          var listel=document.getElementsByClassName('list-group-item');
+          console.log(cl);
+         cl.addEventListener('click', (e) =>{
+           // listel.children[2].style.background="green";*/
+           for(let i=0;i<listel.length;i++){
+            
+            if(i==2){
+                listel[i].style.background="green";
+            }
+            listel[i].style.fontWeight="900";
+           }
+
+          
+          });
+      
+       
+       
+
+        </script>
     
 </html>
