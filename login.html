@@ -17,7 +17,7 @@
                <div id="main" class="card card-body">
                 <h2 class="title">Add Items</h2>
                 <form class="form-inline mb-3">
-                  <input type="text" class="form-control mr-2">
+                  <input type="text"  id="text" class="form-control mr-2">
                   <input type="button" class="btn-dark" value="Submit">
                 </form>
                 <h2 class="title">Items</h2>
@@ -32,25 +32,73 @@
         </body>
         <script>
          
-          var list=document.querySelector('.list-group');
-          var div=document.createElement('div');
-         div.setAttribute('id','hello');
-         div.setAttribute('class','hello1');
-         
-          var divtext=document.createTextNode('hello');
-          div.appendChild(divtext);
-          //console.log(divVal);
-         
-          console.log(div);
-          var container=document.querySelector('.container');
-          var node=document.querySelector('#header-title');
-          var node1=document.querySelectorAll('.title');
-         // console.log(node1[1]);
+        var list=document.getElementsByClassName('list-group-item');
+       console.log(list);
+      for(let i=0;i<list.length;i++){
+        var itemlist=document.createElement('input');
+       
+        itemlist.setAttribute('type','button');
+        itemlist.setAttribute('value','X');
+        itemlist.setAttribute('class','btn');
+        console.log(itemlist);
+        
+        var deletebtn=list[i].appendChild(itemlist);
+        deletebtn.style.backgroundColor="red";
+        deletebtn.style.float="right";
+      }
+       
 
-         container.insertBefore(div,node);
-         div.style.fontSize='30px';
-         var container1=document.querySelector('#main');
-          container1.insertBefore(div,list);
+      //
+      var listitem=document.querySelector('.list-group');
+var submit=document.querySelector('.btn-dark');
+submit.addEventListener('click',getText);
+function getText(){
+  var textval=document.querySelector('#text').value;
+  var newlist=document.createElement('li');
+
+newlist.className='list-group-item';
+
+var listval=document.createTextNode(textval);
+newlist.appendChild(listval);
+listitem.appendChild(newlist);
+var newitemlist=document.createElement('input');
+       
+       newitemlist.setAttribute('type','button');
+       newitemlist.setAttribute('value','X');
+       newitemlist.setAttribute('class','btn');
+       console.log(newitemlist);
+      // var delval=document.createTextNode('X');
+      
+       var del= newlist.appendChild(newitemlist);
+       del.style.background="red";
+       del.style.float="right";
+      
+       
+
+  //console.log(textval);
+}
+listitem.addEventListener('click',deleteitem);
+function deleteitem(e){
+  if(e.target.classList.contains('btn')){
+   
+  var li= e.target.parentElement;
+  listitem.removeChild(li);
+    
+  }
+}
+
+
+
+      
+      
+      
+
+
+
+
+       
+
+    
 
           
         
