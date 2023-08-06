@@ -31,25 +31,29 @@
               </div>
         </body>
         <script>
-          var cl=  document.querySelector('.btn-dark');
-          var listel=document.querySelector('.list-group');
-          var li=document.createElement('li');
-          var list=document.querySelectorAll('li');
+         
+          var list=document.querySelector('.list-group');
+          var div=document.createElement('div');
+         div.setAttribute('id','hello');
+         div.setAttribute('class','hello1');
+         
+          var divtext=document.createTextNode('hello');
+          div.appendChild(divtext);
+          //console.log(divVal);
+         
+          console.log(div);
+          var container=document.querySelector('.container');
+          var node=document.querySelector('#header-title');
+          var node1=document.querySelectorAll('.title');
+         // console.log(node1[1]);
 
-          console.log(cl);
-         cl.addEventListener('click', (e) =>{
+         container.insertBefore(div,node);
+         div.style.fontSize='30px';
+         var container1=document.querySelector('#main');
+          container1.insertBefore(div,list);
+
           
-          for(let i=0;i<list.length;i++){
-            if(i%2==0){
-              list[i].style.background="red";
-            }
-
-          }
-           
-           }
-
-          
-          );
+        
       
        
        
