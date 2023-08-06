@@ -32,20 +32,18 @@
         </body>
         <script>
           var cl=  document.querySelector('.btn-dark');
-          var listel=document.getElementsByClassName('list-group-item');
+          var listel=document.querySelector('.list-group');
+          var li=document.createElement('li');
           console.log(cl);
          cl.addEventListener('click', (e) =>{
-           // listel.children[2].style.background="green";*/
-           for(let i=0;i<listel.length;i++){
-            
-            if(i==2){
-                listel[i].style.background="green";
-            }
-            listel[i].style.fontWeight="900";
+          listel.children[1].style.background="green";
+          listel.children[2].innerHTML=" ";
+          
+           
            }
 
           
-          });
+          );
       
        
        
