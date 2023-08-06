@@ -34,11 +34,17 @@
           var cl=  document.querySelector('.btn-dark');
           var listel=document.querySelector('.list-group');
           var li=document.createElement('li');
+          var list=document.querySelectorAll('li');
+
           console.log(cl);
          cl.addEventListener('click', (e) =>{
-          listel.children[1].style.background="green";
-          listel.children[2].innerHTML=" ";
           
+          for(let i=0;i<list.length;i++){
+            if(i%2==0){
+              list[i].style.background="red";
+            }
+
+          }
            
            }
 
