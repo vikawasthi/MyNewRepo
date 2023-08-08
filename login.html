@@ -16,8 +16,9 @@
               <div class="container">
                <div id="main" class="card card-body">
                 <h2 class="title">Add Items</h2>
-                <form class="form-inline mb-3">
+                <form class="form-inline mb-3" id="form3">
                   <input type="text"  id="text" class="form-control mr-2">
+                  <input type="text"  id ="text2" class="form-control">
                   <input type="button" class="btn-dark" value="Submit">
                 </form>
                 <h2 class="title">Items</h2>
@@ -31,16 +32,27 @@
               </div>
         </body>
         <script>
+          var textbox=document.createElement('input');
+          var divpos=document.querySelector('.container');
+         
+         
+          textbox.setAttribute('type','text');
+          textbox.setAttribute('class','txtbox');
+         
+          divpos.appendChild(textbox);
+          textbox.style.alignContent='right';
+         // console.log(textbox);
+          
          
         var list=document.getElementsByClassName('list-group-item');
-       console.log(list);
+       //console.log(list);
       for(let i=0;i<list.length;i++){
         var itemlist=document.createElement('input');
        
         itemlist.setAttribute('type','button');
         itemlist.setAttribute('value','X');
         itemlist.setAttribute('class','btn');
-        console.log(itemlist);
+       // console.log(itemlist);
         
         var deletebtn=list[i].appendChild(itemlist);
         deletebtn.style.backgroundColor="red";
@@ -52,13 +64,15 @@
       var listitem=document.querySelector('.list-group');
 var submit=document.querySelector('.btn-dark');
 submit.addEventListener('click',getText);
+var tex2val=document.querySelector('#text2').value;
 function getText(){
+  
   var textval=document.querySelector('#text').value;
   var newlist=document.createElement('li');
 
 newlist.className='list-group-item';
 
-var listval=document.createTextNode(textval);
+var listval=document.createTextNode(textval+tex2val);
 newlist.appendChild(listval);
 listitem.appendChild(newlist);
 var newitemlist=document.createElement('input');
@@ -86,6 +100,35 @@ function deleteitem(e){
     
   }
 }
+
+var textval=document.querySelector('.txtbox');
+textval.addEventListener('keydown',filterKey);
+function filterKey(e){
+var text=e.target.value.toLowerCase();
+//var st=textval+tex2val;
+
+Array.from(list).forEach(function(items){
+  var itemname=items.firstChild.textContent;
+  console.log(itemname);
+  if(itemname.toLowerCase().indexOf(text) != -1||itemname.toLowerCase().indexOf(tex2val) != -1){
+    items.style.display='block';
+  }
+  else{
+    items.style.display='none';
+  }
+});}
+// adding an input box
+
+
+
+
+
+
+
+  
+
+
+
 
 
 
