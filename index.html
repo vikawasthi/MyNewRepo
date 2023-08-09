@@ -2,7 +2,7 @@
     <body>
         <h2>HTML Forms</h2>
 
-<form >
+<form  class="form">
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname" value="John"><br>
   <label for="lname">Last name:</label><br>
@@ -41,8 +41,41 @@ obj_arr[0]=objForm;
 
 
    var objstring= JSON.stringify(obj_arr[0]);
-           localStorage.setItem('myworld'+count, objstring ) ;}
-          // localStorage.setItem('lastName', lastName.value ) ;
-        
+           localStorage.setItem('myworld'+count, objstring ) ;
+
+        }
+   
+// localStorage.setItem('lastName', lastName.value ) ;
+button.addEventListener('click',onvalue);
+function onvalue(e){
+    
+ var form=document.querySelector('.form');
+           var newlist =  document.createElement('li') ;
+  newlist.className='listitem';
+  var fnameval=firstName.value;
+  var lnameval=lastName.value;
+  console.log(fnameval);
+  console.log(lnameval);
+ var listval= document.createTextNode(fnameval+" "+lnameval);
+ 
+ 
+newlist.appendChild(listval);
+form.appendChild(newlist);
+var button1=document.createElement('input');
+button1.setAttribute('type','button');
+button1.setAttribute('class','btn');
+button1.setAttribute('value','delete');
+newlist.appendChild(button1);
+
+}
+var buttonval=document.querySelector('.btn');
+buttonval.addEventListener('click',deleteitem);
+function deleteitem(e){
+    list.style.display="none";
+    localStorage.removeItem('myworld'+count);
+}
+
+
+//localStorage.clear();
     </script>
 </html>
