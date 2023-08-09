@@ -19,8 +19,13 @@
         console.log(lastName.value);
         button.addEventListener('click',addlocal);
         function addlocal(e){
-           localStorage.setItem('firstName', firstName.value ) ;
-           localStorage.setItem('lastName', lastName.value ) ;
+const objForm={
+    formfname:firstName.value,
+    formlname:lastName.value
+};
+var obj_fname=JSON.stringify(objForm);
+           localStorage.setItem('myobject', obj_fname ) ;
+          // localStorage.setItem('lastName', lastName.value ) ;
         }
     </script>
 </html>
