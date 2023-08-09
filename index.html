@@ -27,7 +27,7 @@
             if(localStorage.clickcount){
                 localStorage.clickcount=Number(localStorage.clickcount)+1;
   } else {
-    localStorage.clickcount = 1;
+    localStorage.clickcount = 0;
   }
   count=localStorage.clickcount;
             
@@ -43,11 +43,10 @@ obj_arr[0]=objForm;
    var objstring= JSON.stringify(obj_arr[0]);
            localStorage.setItem('myworld'+count, objstring ) ;
 
-        }
+        
    
 // localStorage.setItem('lastName', lastName.value ) ;
-button.addEventListener('click',onvalue);
-function onvalue(e){
+
     
  var form=document.querySelector('.form');
            var newlist =  document.createElement('li') ;
