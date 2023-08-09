@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
     <body>
         <h2>HTML Forms</h2>
 
@@ -11,21 +11,38 @@
 </form> 
     </body>
     <script>
+
         var button=document.querySelector('[type="submit"]');
         var firstName=document.querySelector('#fname');
         var lastName=document.querySelector('#lname');
-        console.log(button);
-        console.log(firstName.value);
-        console.log(lastName.value);
+       // console.log(button);
+       // console.log(firstName.value);
+       // console.log(lastName.value);
+        var obj_arr=[];
+        var count=0;
+       
+
         button.addEventListener('click',addlocal);
         function addlocal(e){
+            if(localStorage.clickcount){
+                localStorage.clickcount=Number(localStorage.clickcount)+1;
+  } else {
+    localStorage.clickcount = 1;
+  }
+  count=localStorage.clickcount;
+            
+           
 const objForm={
     formfname:firstName.value,
     formlname:lastName.value
 };
-var obj_fname=JSON.stringify(objForm);
-           localStorage.setItem('myobject', obj_fname ) ;
+obj_arr[0]=objForm;
+//console.log(obj_arr[0]);
+
+
+   var objstring= JSON.stringify(obj_arr[0]);
+           localStorage.setItem('myworld'+count, objstring ) ;}
           // localStorage.setItem('lastName', lastName.value ) ;
-        }
+        
     </script>
 </html>
